@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block main %}
+
+<!-- Prime -->
+<div class="row justify-content-evenly bg-primary">
+    <div class="col-9">
+        <h1 class="m-5 text-center text-white">Prime</h1>
+        
+        <form method="post">
+        {% csrf_token %}
+
+            {% if error %}
+            <div class="alert alert-danger mb-5">
+              Invalid input! - Please enter some value
+            </div>
+            {% endif %}
+  
+            <div class="mb-5">
+              <label for="" class="form-label">Value</label>
+              <input type="text" class="form-control" name="val" value="{{vl}}">
+            </div>
+            
+            <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+            
+            <div class="mb-5">
+              <label for="" class="form-label">Output</label>
+              <input type="text" class="form-control" placeholder="{{op}}" disabled>
+            </div>  
+        
+          </form><br><br><br>
+    </div>
+</div>
+
+{% endblock %}

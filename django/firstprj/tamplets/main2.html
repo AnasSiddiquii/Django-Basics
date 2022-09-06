@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block main %}
+
+        <!-- body -->
+        <marquee onmouseover="stop()" onmouseout="start()" behavior=alternate class="bg-primary mt-2 p-1">
+            {% for i in z %}
+            <a href="/news/{{i.slug}}" style="text-decoration: none; color:white"> {{i.title}} </a> &nbsp &nbsp &nbsp
+            {% endfor%}
+        </marquee>
+        
+        <!-- banner -->
+        <div id="banner" class="uni-padding">
+            <h1>User Form</h1>
+
+        {% comment %} User Form {% endcomment %}
+
+            <form method="post" action="{% url 'saveform' %}">
+                {% csrf_token %}
+
+                    <div>
+                      <label for="" class="form-label"></label>
+                      <input type="text" class="form-control mb-3" name="name" placeholder="Name">
+                    </div>
+
+                    <div>
+                      <input type="tel" class="form-control mb-3" name="phone" placeholder="Phone">
+                    </div>
+
+                    <div>
+                      <input type="email" class="form-control mb-3" name="email" placeholder="Email">
+                    </div>
+
+                    <div>
+                      <input type="url" class="form-control mb-3" name="website" placeholder="Website">
+                    </div>
+
+                    <div>
+                      <textarea class="form-control mb-3" name="message" placeholder="Message"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    
+                  </form><br><br><br>
+
+        </div>
+
+        <!-- why us -->
+        <div id="whyus" class="uni-padding">
+
+            <h1 class="red-heading">Why Us</h1>
+
+            <div class="section33">
+                <img src="/static/images/icon1.png" alt="Image">
+                <h2>Heading 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+
+            <div class="section33">
+                <img src="/static/images/icon2.png" alt="Image">
+                <h2>Heading 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+ 
+            <div class="section33">
+                <img src="/static/images/icon3.png" alt="Image">
+                <h2>Heading 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+
+        </div>
+
+        <!-- contact us -->
+        <div id="contactus" class="uni-padding">
+ 
+            <div class="section70">
+            <h1>Lorem, ipsum.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure ullam placeat voluptatem nisi aliquam dignissimos, in illum cupiditate quis sapiente?</p>
+            </div>
+
+            <div class="section30">
+                <a href="" id="contact-btn">Contact</a>
+            </div>
+
+        </div>
+
+        <!-- blog -->
+        <div id="blog" class="uni-padding">
+            
+            <h1 class="red-heading">Blog</h1>
+
+            <div class="section33">
+                <img src="/static/images/blog1.jpg" alt="Image">
+                <h2>Heading 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                <a href="#">Read More</a>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/blog2.jpg" alt="Image">
+                <h2>Heading 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                <a href="#">Read More</a>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/blog3.jpg" alt="Image">
+                <h2>Heading 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                <a href="#">Read More</a>
+            </div>
+        
+        </div>
+
+        <!-- subscribe -->
+        <div id="subscribe" class="uni-padding">
+        
+            <div class="section50">
+                <h2>Subscribe Our Newsletter</h2>
+            </div>
+                
+            <div class="section50">
+                <form action="">
+                    <input type="text" placeholder="Enter Email ID">
+                    <input type="submit">
+                </form>
+            </div>
+
+        </div>
+
+{% endblock %}

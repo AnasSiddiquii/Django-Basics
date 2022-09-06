@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block main %}
+
+<!-- django form -->
+{% comment %} <!-- <div class="row justify-content-evenly bg-warning">
+  <div class="col-9">
+      <h1 class="m-5 text-center text-white">User Form</h1>
+      <form method="post" action={% url 'submitform' %}>
+      {% csrf_token %}
+      {{fun3}}
+          <button type="submit" class="btn btn-primary mb-5">Submit</button>
+          <div class="mb-5">
+            <label for="" class="form-label">Total</label>
+            <input type="text" class="form-control" value="{{output}}" disabled>
+          </div>  
+      </form><br><br><br>
+  </div>
+</div> --> {% endcomment %}
+
+<!-- form -->
+<div class="row justify-content-evenly bg-warning">
+    <div class="col-9">
+        <h1 class="mt-5 text-center text-white">Calculator</h1>
+        
+        <form method="post"> {% comment %}<!-- action={% url 'submitform' %} --> {% endcomment %}
+        {% csrf_token %}
+        
+            {% if error %}
+            <div class="alert alert-danger mb-5">
+              Invalid input! - Please enter some value
+            </div>
+            {% endif %}
+            
+            <div class="mb-3">
+              <label for="" class="form-label">Value1</label>
+              <input type="text" class="form-control" name="num1" value="{{value1}}">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Opreator</label>
+              <select class="form-control" name="opr">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Value2</label>
+              <input type="text" class="form-control" name="num2" value="{{value2}}">
+            </div>
+            <button type="submit" class="btn btn-danger mb-3">Submit</button>
+            <div class="mb-3">
+              <label for="" class="form-label">Total</label>
+              <input type="text" class="form-control" placeholder="{{output}}" disabled>
+            </div>  
+        
+          </form><br><br><br>
+    </div>
+</div>
+
+{% endblock %}

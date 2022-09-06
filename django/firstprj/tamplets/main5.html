@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block main %}
+
+        <!-- marksheet -->
+        <div class="row justify-content-evenly bg-info">
+            <div class="col-9">
+                <h1 class="mt-5 text-center text-white">Marksheet</h1>
+                
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if invalid %}
+                    <div class="alert alert-danger mb-5">
+                    Invalid input! - Fill all fields
+                    </div>
+                    {% endif %}
+        
+                    <!-- subjects -->
+                    <div class="mb-3">
+                        <label for="" class="form-label">Subject 1</label>
+                        <input type="text" class="form-control" name="sub1" value="{{mk1}}">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label">Subject 2</label>
+                      <input type="text" class="form-control" name="sub2" value="{{mk2}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Subject 3</label>
+                        <input type="text" class="form-control" name="sub3" value="{{mk3}}">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label">Subject 4</label>
+                      <input type="text" class="form-control" name="sub4" value="{{mk4}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Subject 5</label>
+                        <input type="text" class="form-control" name="sub5" value="{{mk5}}">
+                    </div>
+                    <button type="submit" class="btn btn-success mb-3">Submit</button>
+                    
+                    <!-- result -->
+                    <div class="mb-3">
+                        <label for="" class="form-label">Total</label>
+                        <input type="text" class="form-control" placeholder="{{ttl}}" disabled>
+                    </div>  
+                    <div class="mb-3">
+                        <label for="" class="form-label">Precentage</label>
+                        <input type="text" class="form-control" placeholder="{{ptg}}" disabled>
+                    </div>  
+                    <div class="mb-3">
+                        <label for="" class="form-label">Division</label>
+                        <input type="text" class="form-control" placeholder="{{dvn}}" disabled>
+                    </div>  
+                
+                  </form><br><br><br>
+            </div>
+        </div>
+        
+        {% endblock %}

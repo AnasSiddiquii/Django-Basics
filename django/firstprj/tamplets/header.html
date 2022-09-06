@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSD to HTML</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/f248297028.js" crossorigin="anonymous"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    </head>
+
+<body>
+    
+    <div id="container">
+    
+
+        
+        <!-- header -->
+        <header>
+        
+        <!-- topbar -->
+        <div id="topbar" class="uni-padding">
+            <p id="tollfree">Toll Free: 1234-56789</p>
+            <div id="social-icon">
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        
+        <!-- logobar -->
+        <div class="uni-padding text-center">    
+            <img src="/static/images/logo.jpg" alt="Logo" width=300 height=120>
+        </div>
+        
+        <!-- navbar -->
+        <nav id="navbar" class="uni-padding">
+            <ul>
+                <li id="mobile-cross">
+                    <a href="javascript:void(0)" onclick="closemenu()"">
+                    <i class="fa-solid fa-circle-xmark"></i></a>
+                </li> <!-- cross button -->
+                
+                <!-- {{request.path}} -->
+                <li class="{% if request.path == '/' %} active {% endif %}"><a class="m-1"href="{% url 'home' %}">Home</a></li>
+                
+                <li class="{% if request.path == '/about/' %} active {% endif %}"><a href="/about">About Us</a></li>
+
+                <li class="{% if request.path == '/prime/' %} active {% endif %}"><a href="/prime">Prime</a></li>
+                <!-- in href path can directly be used -->
+                
+                <li class="{% if request.path == '/calculator/' %} active {% endif %}"><a href="/calculator">Calculator</a></li>
+                <!-- after giving name, path can still be used -->
+                
+                <li class="{% if request.path == '/marksheet/' %} active {% endif %}"><a href="{% url 'main5' %}">Marksheet</a></li>
+                <!-- after giving name, url with name can be used -->
+                
+                {% url 'main6' as last %}
+                <li class="{% if request.path == last %} active {% endif %}"><a href="{% url 'main6' %}">Contact Us</a></li>   
+                <!-- url alias can be made but can oly be used in if -->
+            </ul>
+        </nav>
+        
+        <!-- menu button -->
+        <div id="mobile-bar" onclick="openmenu()">
+            <i class="fa-solid fa-bars"></i>Menu
+        </div>
+    
+        </header>

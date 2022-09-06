@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block main %}
+
+        <!-- body -->
+
+        <!-- banner -->
+        <div id="banner" class="uni-padding">
+            <!-- <h1 class="text-center">{{output}}</h1> -->
+            <h1>Lorem1, ipsum dolor.</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi exercitationem, nobis repellendus voluptates blanditiis consequuntur possimus vel voluptatem, odio laudantium dolor. Vero sapiente distinctio commodi eius facere. Labore, recusandae sit!</p>
+        </div>
+
+        <!-- why us -->
+        <div id="whyus" class="uni-padding">
+
+            <h1 class="red-heading">Why Us</h1>
+            
+            <div class="section33">
+                <img src="/static/images/icon1.png" alt="Image">
+                <h2>Heading 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/icon2.png" alt="Image">
+                <h2>Heading 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/icon3.png" alt="Image">
+                <h2>Heading 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+        
+        </div>
+
+        <!-- contact us -->
+        <div id="contactus" class="uni-padding">
+        
+            <div class="section70">
+            <h1>Lorem, ipsum.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure ullam placeat voluptatem nisi aliquam dignissimos, in illum cupiditate quis sapiente?</p>
+            </div>
+            
+            <div class="section30">
+                <a href="" id="contact-btn">Contact</a>
+            </div>
+
+        </div>
+
+        <!-- blog -->
+        <div id="blog" class="uni-padding">
+
+            <h1 class="red-heading">Blog</h1>
+            
+            <form method="post">
+                {% csrf_token %}
+                    <br><input type=text name=input class="rounded">
+                    <button type=submit class="bg-danger rounded mb-3">Search</button><br>
+                </form>
+                {% comment %} {{f}} {% endcomment %}
+    
+                {% for a in d %}
+                <div class="section33">
+                    <img src="/static/images/blog1.jpg" alt="Image">
+                    <h2>{{a.head}}</h2>
+                    <p>{{a.desc | safe}}</p>
+                    <a href="#">{{a.read}}</a>
+                </div>
+
+                {% empty %}
+                <label class="mb-5">No Data Found</label>
+
+                {% endfor %}
+                
+    
+                {% comment %} <div class="section33">
+                    <img src="/static/images/blog2.jpg" alt="Image">
+                    <h2>Heading 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                    <a href="#">Read More</a>
+                </div>
+                
+                <div class="section33">
+                    <img src="/static/images/blog3.jpg" alt="Image">
+                    <h2>Heading 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                    <a href="#">Read More</a>
+                </div> {% endcomment %}
+            
+        </div>
+
+        <!-- paginator -->
+        <nav aria-label="...">
+            <ul class="pagination justify-content-center mb-5">
+
+                {% if d.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="/?page=1">First</a>
+                </li>
+                
+                <li class="page-item">
+                    <a class="page-link" href="/?page={{d.previous_page_number}}">Previous</a>
+                </li>    
+                {% endif %}
+
+                {% for n in f %}
+                <li class="page-item">
+                    <a class="page-link" href="/?page={{n}}">{{n}}</a>
+                </li>
+                {% endfor %}  
+
+                {% if d.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="/?page={{d.next_page_number}}">next</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="/?page={{e}}">Last</a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+        
+        <!-- subscribe -->
+        <div id="subscribe" class="uni-padding">
+        
+            <div class="section50">
+                <h2>Subscribe Our Newsletter</h2>
+            </div>
+                
+            <div class="section50">
+                <form action="">
+                    <input type="text" placeholder="Enter Email ID">
+                    <input type="submit">
+                </form>
+            </div>
+
+        </div>
+
+{% endblock %}

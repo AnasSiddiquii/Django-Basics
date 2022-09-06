@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block main %}
+
+        <!-- body -->
+
+        <!-- banner -->
+        <div id="banner" class="uni-padding">
+            
+            <h1>{{n.title}}</h1>
+
+            {% if n.img != NULL %}
+            <img src="/media/{{n.img}}">
+            {% endif %}
+
+            <p>{{n.content | safe}}</p>
+        
+        </div>
+
+        <!-- why us -->
+        <div id="whyus" class="uni-padding">
+
+            <h1 class="red-heading">Why Us</h1>
+            
+            <div class="section33">
+                <img src="/static/images/icon1.png" alt="Image">
+                <h2>Heading 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/icon2.png" alt="Image">
+                <h2>Heading 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/icon3.png" alt="Image">
+                <h2>Heading 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+            </div>
+        
+        </div>
+
+        <!-- contact us -->
+        <div id="contactus" class="uni-padding">
+        
+            <div class="section70">
+            <h1>Lorem, ipsum.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure ullam placeat voluptatem nisi aliquam dignissimos, in illum cupiditate quis sapiente?</p>
+            </div>
+            
+            <div class="section30">
+                <a href="" id="contact-btn">Contact</a>
+            </div>
+
+        </div>
+
+        <!-- blog -->
+        <div id="blog" class="uni-padding">
+
+            <h1 class="red-heading">Blog</h1>
+            
+            {% for i in b %}
+            <div class="section33">
+                <img src="/static/images/blog1.jpg" alt="Image">
+                <h2>{{i.head | length | wordcount}}</h2>
+                <p>{{i.desc | lower | capfirst | slice:"5:55" | safe}}</p>
+                <a href="#">{{i.read | first}}</a>
+            </div>
+            {% endfor %}
+            
+            {% comment %} <div class="section33">
+                <img src="/static/images/blog2.jpg" alt="Image">
+                <h2>Heading 2</h2>
+                <p>Lorem2 ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                <a href="#">Read More..</a>
+            </div>
+            
+            <div class="section33">
+                <img src="/static/images/blog3.jpg" alt="Image">
+                <h2>Heading 3</h2>
+                <p>Lorem3 ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat veritatis nulla voluptate ut laborum sapiente!</p>
+                <a href="#">Read More...</a>
+            </div> {% endcomment %}
+        
+        </div>
+
+        <!-- subscribe -->
+        <div id="subscribe" class="uni-padding">
+        
+            <div class="section50">
+                <h2>Subscribe Our Newsletter</h2>
+            </div>
+                
+            <div class="section50">
+                <form action="">
+                    <input type="text" placeholder="Enter Email ID">
+                    <input type="submit">
+                </form>
+            </div>
+
+        </div>
+
+{% endblock %}

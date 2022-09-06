@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <style>
+            #box1{
+                background-color:pink;
+                color: white;
+                font-size:20px;
+                padding:10px;
+                text-align:center;
+                }
+            #box2{
+                background-color:skyblue;
+                color: white;
+                font-size:20px;
+                padding:10px;
+                text-align:center;
+                }
+            table{
+                margin:20px;
+                }
+        </style>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <div id="box1">{{box1}}</div>
+        {% for n in box2 %}
+
+        <div id="box2">{{forloop.counter0}}.{{n}}</div>
+        {% endfor %}
+        
+        {% for n in box3 %}
+        <div id="box1">{{forloop.counter}}.{{n}}</div>
+        {% endfor %}
+        
+        {% for n in box4 %}
+        <div id="box2">{{forloop.revcounter}}{{n}}</div>
+        {% endfor %}
+        
+        {% comment %} {{forloop.first}} {% endcomment %}
+        {% comment %} {{forloop.last}} {% endcomment %}
+        
+        <table border=1 cellpadding=10 cellspacing=0>
+            
+            <tr>
+                <th>name</th>
+                <th>phone</th>
+            </tr>
+            
+            {% for n in box4 %}
+            
+            <tr>
+                <td>{{n.name}}</td>
+                <td>{{n.phone}}</td>
+            </tr>
+            
+            {% endfor %}
+            
+        </table>
+        
+        {% if box5|length > 0 %}
+            {% for n in box5 %}
+                {% if n > 30 and n < 70 %}
+                    <div>{{n}}</div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            no data found
+        {% endif %}
+
+        {% if box6|length > 0 %}
+            {% for n in box6 %}
+                {% if n > 30 and n < 70 %}
+                    <div>{{n}}</div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            no data found
+        {% endif %}
+        
+    </body>
+    </html>
